@@ -81,6 +81,8 @@ async function fetchIssues(req) {
             queryBuilder = queryBuilder.where('author').equals(word.substr(7))
         } else if (word.startsWith('part:')) {
             queryBuilder = queryBuilder.where('part').contains(word.substr(5))
+        } else if (word.startsWith('tag:')) {
+            queryBuilder = queryBuilder.where('tags').contains(word.substr(4))
         } else {
             queryBuilder = queryBuilder.where('title').matches(word.trim())
         }
