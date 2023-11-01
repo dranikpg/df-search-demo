@@ -1,0 +1,9 @@
+html(lang='en')
+  head 
+    link(rel='stylesheet', type='text/css', href='https://cdn.jsdelivr.net/npm/water.css@2/out/water.css')
+  form(id="create" action="/create" method="post")
+    input(type="text", name="title", value="", placeholder="What it's about..." style={'width':'50vw'})
+    br
+    input(type="text", name="tags", value="", placeholder="CSV tags WITHOUT spaces")
+    br
+    input(type="submit" value="Create")

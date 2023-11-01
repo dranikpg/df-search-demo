@@ -1,0 +1,11 @@
+html 
+  head 
+    link(rel='stylesheet', type='text/css', href='https://cdn.jsdelivr.net/npm/water.css@2/out/water.css')
+  form(id="login" action="/q" method="post")
+    textarea(type="text", name="code", placeholder="My command", style={width: "70vw"})= last
+    br
+    input(type="submit" value="Submit")
+  hr
+  pre= last
+  hr
+  pre(style={"white-space": "pre-wrap"})= lres

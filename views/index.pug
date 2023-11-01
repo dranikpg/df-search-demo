@@ -1,0 +1,33 @@
+doctype html
+html(lang="en")
+  head 
+    link(rel='stylesheet', type='text/css', href='https://cdn.jsdelivr.net/npm/water.css@2/out/water.css')
+  body
+    div(style={"display": "flex", "justify-items": "center", "justify-content": "space-between"})
+      a(href="/create")
+        button Create
+      form(id="search" action="/" method="get")
+        input(type="text", name="query", value="", placeholder="Keyword...", style={"min-width": "35vw"})
+        br
+        input(type="submit" value="Submit" style={visibility:"hidden"})
+      a(href="/?sort=updated")
+        small Recently updated
+      a(href="/?sort=commented")
+        small Actively discussed
+    hr
+    table
+      thead 
+        td(colspan="3") Title 
+        td Author
+        td Tags
+        td Comments
+      tbody
+        for issue in issues
+          tr
+            td(colspan="3") 
+              a(href=issue.href)= issue.title
+            td= issue.author
+            td  
+              for tag in issue.tags
+                span(style={"margin-right": "5px", "border": "1px solid black", "padding": "3px", "border-radius": "2px"})= tag
+            td= issue.comments.length

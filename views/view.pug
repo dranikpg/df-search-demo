@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+  head 
+    link(rel='stylesheet', type='text/css', href='https://cdn.jsdelivr.net/npm/water.css@2/out/water.css')
+  body
+    div(style={"display": "flex",  "align-items": "center", "justify-content": "space-between"})
+      a(href="/")
+        button back 
+      h2= `${issue.title}`
+      div
+        for tag in issue.tags
+          span(style={"margin-right": "10px", "border": "1px solid black", "padding": "3px", "border-radius": "2px"})= tag
+
+    for comment in issue.comments
+      blockquote
+        b= comment.author
+        p= comment.text
+
+    form(id="comment" action=commentUrl method="post")
+      input(type="text", name="text", value="", placeholder="My comment...",)
+      br
+      input(type="submit" value="Submit" style={visibility:"hidden"})
